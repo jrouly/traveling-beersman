@@ -12,18 +12,10 @@ package net.rouly {
   object TravelingBeersman {
 
 
-    /* Defines an enumeration of possible categories. */
-    object Category extends Enumeration {
-      type Category = Value
-      val brewery, eatery, store, homebrew = Value
-    }
-    import Category._
-
-
     /* Defines an Establishment object with name, location, and category. */
     class Establishment(name: String,
-                        location: String,
-                        category: Category) {
+                        location: (Double, Double),
+                        category: String) {
 
       val this.name = name // name of the establishment
       val this.location = location // point location
@@ -35,6 +27,28 @@ package net.rouly {
     }
 
 
+    /* Simple string->double convenience method. */
+    def parseDouble(s: String) =
+      try { Some(s.toDouble) }
+      catch { case _ : Throwable => None }
+
+
+    /* Simple converter from an input line to an Establishment object. */
+    def lineToEstablishment(line: String): Establishment = {
+      val splits = line.split(" _ ").toList
+      splits match {
+        case List(category: String,
+                  name: String,
+                  latitude: String,
+                  longitude: String) =>
+          new Establishment(name,
+                            (parseDouble(latitude).get,
+                             parseDouble(longitude).get),
+                            category)
+      }
+    }
+
+
     /* Main Spark/GraphX executable. */
     def main(args: Array[String]) {
 
@@ -43,12 +57,12 @@ package net.rouly {
 
       println("Startup complete.")
 
-      val establishments = for {
-        line <- Source.fromFile("input.txt").getLines
-        split <- line.split(" _ ")
-      } yield split
+      /* Read from input file, convert them to Establishment objects. */
+      val lines = Source.fromFile("input.txt").getLines
+      val establishments: RDD[Establishment] =
+        sc.parallelize(lines.map(line => lineToEstablishment( line )).toSeq)
 
-      for( est <- establishments ) println( est )
+      println("Read-in complete.")
 
     }
 
