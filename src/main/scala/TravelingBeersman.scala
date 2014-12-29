@@ -69,6 +69,13 @@ package net.rouly {
 
       println("Read-in complete.")
 
+      /* Generate the pairwise distances between vertices and store those
+         weights on the corresponding edges. */
+      val pairs: RDD[((VertexId, Establishment), (VertexId, Establishment))] =
+        vertices.cartesian(vertices)
+
+      println("Edge generation complete.")
+
     }
 
   }
