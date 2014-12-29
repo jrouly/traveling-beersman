@@ -1,3 +1,4 @@
+Home _ AirBNB _ 39.748406 _ -104.949522
 Brewery _ Crooked Stave Brewery & Taproom _ 39.768756 _ -104.97973
 Brewery _ Comrade Brewing Company _ 39.6757079 _ -104.898327
 Brewery _ TRVE Brewing Co. _ 40.711968 _ -74.0081581
