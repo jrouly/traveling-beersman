@@ -13,9 +13,10 @@ package net.rouly {
 
 
     /* Defines an Establishment object with name, location, and category. */
+    @SerialVersionUID(100L)
     class Establishment(name: String,
                         location: (Double, Double),
-                        category: String) {
+                        category: String) extends Serializable {
 
       val this.name = name // name of the establishment
       val this.location = location // point location
@@ -45,7 +46,7 @@ package net.rouly {
                             (parseDouble(latitude).get,
                              parseDouble(longitude).get),
                             category)
-      }
+          }
     }
 
 
@@ -59,8 +60,12 @@ package net.rouly {
 
       /* Read from input file, convert them to Establishment objects. */
       val lines = Source.fromFile("input.txt").getLines
-      val establishments: RDD[Establishment] =
-        sc.parallelize(lines.map(line => lineToEstablishment( line )).toSeq)
+      val establishments =
+        lines.map(line => lineToEstablishment( line ))
+      val establishmentsIDs =
+        establishments.zipWithIndex.map({case (a,b) => (b.toLong,a)})
+      val vertices: RDD[(VertexId, Establishment)] =
+        sc.parallelize(establishmentsIDs.toSeq)
 
       println("Read-in complete.")
 
