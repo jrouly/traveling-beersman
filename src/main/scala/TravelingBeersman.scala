@@ -13,6 +13,8 @@ package net.rouly {
 
 
     /* Defines an Establishment object with name, location, and category. */
+    // TODO: Change location to address string, look up distances using
+    // Google maps.
     @SerialVersionUID(100L)
     class Establishment(val name: String,
                         val location: (Double, Double),
@@ -47,6 +49,8 @@ package net.rouly {
 
 
     /* Calculate the distance between two Establishments by ID. */
+    // TODO: convert this to use the Google Maps API and weight edges with
+    // time of travel.
     def distanceBetweenPairs( pair: ((VertexId, Establishment), (VertexId, Establishment)) ): (VertexId, VertexId, Double) = {
       val src = pair._1
       val dst = pair._2
@@ -93,6 +97,43 @@ package net.rouly {
       val graph = Graph( vertices, edges )
 
       println("Graph generation complete.")
+
+
+      /* Calculate the shortest path visiting all vertices. */
+      val sourceID: VertexId = 0
+
+      // Create a copy of the graph where vertices keep track of distance.
+      // Initialize values to infinity except for the source vertex.
+      val initialGraph =
+        graph.mapVertices((id,_) => if (id == sourceID) 0.0
+                                    else Double.PositiveInfinity )
+
+      // Use the Pregel framework to calculate shortest path.
+      val shortestPath = initialGraph.pregel(Double.PositiveInfinity)(
+        (id, dist, newDist) => math.min(dist, newDist), // Vertex Program
+        triplet => {  // Send Message
+          if (triplet.srcAttr + triplet.attr < triplet.dstAttr) {
+            Iterator((triplet.dstId, triplet.srcAttr + triplet.attr))
+          } else {
+            Iterator.empty
+          }
+        },
+        (a,b) => math.min(a,b) // Merge Message
+        )
+
+      // Sort the vertices and replace IDs with their Establishments.
+      val sortedVertices =
+        shortestPath.vertices
+                    .sortBy( _._1 ) // sort by ID
+                    .zip( vertices.sortBy( _._1 ) ) // sort by ID
+                    .map({case ((a,b),(c,d)) => (c, b, d)}) // remove dup.
+                    .sortBy( _._2 ) // sort by distance
+                    .collect // collect into Array
+
+      // Print out the sorted path.
+      sortedVertices.foreach( println )
+
+      println("Traveling Beersman complete.")
 
     }
 
