@@ -50,6 +50,12 @@ package net.rouly {
     }
 
 
+    /* Calculate the distance between two Establishments by ID. */
+    def distanceBetweenPairs( pair: ((VertexId, Establishment), (VertexId, Establishment)) ): (VertexId, VertexId, Long) = {
+      return (pair._1._1, pair._2._1, 0L)
+    }
+
+
     /* Main Spark/GraphX executable. */
     def main(args: Array[String]) {
 
@@ -58,21 +64,26 @@ package net.rouly {
 
       println("Startup complete.")
 
+
       /* Read from input file, convert them to Establishment objects. */
       val lines = Source.fromFile("input.txt").getLines
       val establishments =
-        lines.map(line => lineToEstablishment( line ))
-      val establishmentsIDs =
-        establishments.zipWithIndex.map({case (a,b) => (b.toLong,a)})
+        lines.map(lineToEstablishment)
+             .zipWithIndex
+             .map({case (a,b) => (b.toLong,a)})
+             .toSeq
       val vertices: RDD[(VertexId, Establishment)] =
-        sc.parallelize(establishmentsIDs.toSeq)
+        sc.parallelize(establishments)
 
       println("Read-in complete.")
 
+
       /* Generate the pairwise distances between vertices and store those
          weights on the corresponding edges. */
-      val pairs: RDD[((VertexId, Establishment), (VertexId, Establishment))] =
+      val edges: RDD[Edge[Long]] =
         vertices.cartesian(vertices)
+                .map(distanceBetweenPairs)
+                .map({case (srcID, dstID, attr) => new Edge(srcID, dstID, attr)})
 
       println("Edge generation complete.")
 
