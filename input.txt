@@ -1,60 +1,60 @@
-Brewery _ Crooked Stave Brewery & Taproom _ 3350 Brighton Blvd, Denver
-Brewery _ Comrade Brewing Company _ 7667 E Iliff Ave #F, Denver
-Brewery _ TRVE Brewing Co. _ 227 Broadway # 101, Denver
-Brewery _ Wit's End Brewing Company _ 2505 W 2nd Ave Unit 13, Denver
-Brewery _ Great Divide Brewing Company _ 2201 Arapahoe Street, Denver
-Brewery _ River North Brewery _ 2401 Blake St Ste 1, Denver
-Brewery _ Prost Brewing Company _ 2540 19th St, Denver
-Brewery _ Hogshead Brewery _ 4460 W 29th Ave, Denver
-Brewery _ Black Shirt Brewing Co. _ 3719 Walnut St, Denver
-Brewery _ Jagged Mountain Craft Brewery _ 1139 20th St, Denver
-Brewery _ Bull & Bush Brewery _ 4700 Cherry Creek Dr S, Denver
-Brewery _ Former Future Brewing Company _ 1290 S Broadway, Denver
-Brewery _ LowDown Brewery + Kitchen _ 800 Lincoln St, Denver
-Brewery _ De Steeg Brewing Company _ 4342 Tennyson St, Denver
-Brewery _ Platt Park Brewing Company _ 1875 S Pearl St, Denver
-Brewery _ Copper Kettle Brewing Company _ 1338 South Valentia Street, Unit 100, Denver
-Brewery _ CAUTION: Brewing Co. _ 12445 E 39th Ave, Denver
-Brewery _ Diebolt Brewing Company _ 3855 Mariposa St, Denver
-Brewery _ Baere Brewing Company _ 320 Broadway Ste E, Denver
-Brewery _ Renegade Brewing Company _ 925 W 9th Ave, Denver
-Brewery _ Rock Bottom Restaurant & Brewery _ 1001 16th Street, Denver
-Brewery _ Beryl's Beer Company _ 3120-C Blake Street, Denver
-Brewery _ Station 26 Brewing Co. _ 7045 E 38th Ave, Denver
-Brewery _ Epic Brewing Company _ 3001 Walnut St, Denver
-Brewery _ Strange Craft Beer Company _ 1330 Zuni St, Unit M, Denver
-Brewery _ SandLot Brewery @ Coors Field _ 2161 Blake Street, Denver
-Brewery _ Wynkoop Brewing Company _ 1634 18th St. At Wynkoop, Denver
-Brewery _ Black Sky Brewery _ 490 Santa Fe Drive, Denver
-Brewery _ Denver Beer Co. _ 1695 Platte St, Denver
-Brewery _ Breckenridge BBQ & Brew Pub _ 471 Kalamath Street, Denver
-Brewery _ Breckenridge Brewery _ 471 Kalamath St, Denver
-Brewery _ Chain Reaction Brewing Company _ 902 S Lipan St, Denver
-Brewery _ Our Mutual Friend Malt & Brew _ 2810 Larimer St, Denver
-Brewery _ Denver ChopHouse & Brewery _ 1735 19th St., #100, Denver
-Brewery _ Pints Pub _ 211 West 13th Avenue, Denver
-Brewery _ Big Nose Brewing _ 511 16th Street #310, Denver
-Brewery _ Fiction Beer Company _ 7101 E Colfax Ave, Denver
-Brewery _ Zephyr Brewing Co. _ 1421 26th St, Denver
-Eatery _ Falling Rock Tap House _ 1919 Blake St, Denver
-Eatery _ Hops & Pie _ 3920 Tennyson St, Denver
-Eatery _ Freshcraft _ 1530 Blake St, Denver
-Eatery _ Stapleton Tap House _ 8286 E Northfield Blvd, Denver
-Eatery _ Cheeky Monk Belgian Beer Café _ 534 E Colfax Ave, Denver
-Eatery _ Euclid Hall Bar & Kitchen _ 1317 14th St, Denver
-Eatery _ Star Bar _ 2137 Larimer St, Denver
-Eatery _ Yard House _ 1555 Court Pl, Denver
-Eatery _ The Cherry Cricket _ 2641 East 2nd Avenue, Denver
-Eatery _ Ale House at Amato's _ 2501 16th St, Denver
-Eatery _ Old Chicago - Market St. _ 1415 Market St, Denver
-Eatery _ Blake Street Tavern _ 2401 Blake Street, unit #1, Denver
-Eatery _ New Belgium Hub _ 8500 Peña Blvd, Denver
-Eatery _ Breckenridge Colorado Craft _ 2220 Blake St, Denver
-Store _ Grapevine Wine & Liquors _ 900 S Monaco Pkwy, Denver
-Store _ Small Batch Liquors _ 4340 Tennyson St, Denver
-Store _ Little's Fine Wines _ 2390 S Downing St, Denver
-Store _ Mondo Vino _ 3601 W 32nd Ave, Denver
-Store _ Mr. B's Wine & Spirits _ 2101 Market St, Denver
-Store _ Colorado Liquor Mart _ 865 S Colorado Blvd, Denver
-Store _ Argonaut Wine & Liquor _ 760 E Colfax Ave, Denver
-Homebrew _ Stomp Them Grapes! _ 4731 Lipan St., Denver
+Brewery _ Crooked Stave Brewery & Taproom _ 39.768756 _ -104.97973
+Brewery _ Comrade Brewing Company _ 39.6757079 _ -104.898327
+Brewery _ TRVE Brewing Co. _ 40.711968 _ -74.0081581
+Brewery _ Wit's End Brewing Company _ 39.7206122 _ -105.0176814
+Brewery _ Great Divide Brewing Company _ 39.753793 _ -104.9884662
+Brewery _ River North Brewery _ 39.7583991 _ -104.9893989
+Brewery _ Prost Brewing Company _ 39.7602705 _ -105.0039823
+Brewery _ Hogshead Brewery _ 39.7581892 _ -105.045106
+Brewery _ Black Shirt Brewing Co. _ 39.769858 _ -104.972962
+Brewery _ Jagged Mountain Craft Brewery _ 39.75226 _ -104.9913841
+Brewery _ Bull & Bush Brewery _ 39.7030961 _ -104.9324133
+Brewery _ Former Future Brewing Company _ 39.6933943 _ -104.9871437
+Brewery _ LowDown Brewery + Kitchen _ 39.7293493 _ -104.9858064
+Brewery _ De Steeg Brewing Company _ 39.77607 _ -105.043671
+Brewery _ Platt Park Brewing Company _ 39.6825659 _ -104.9807821
+Brewery _ Copper Kettle Brewing Company _ 39.6923203 _ -104.8904572
+Brewery _ CAUTION: Brewing Co. _ 39.7727245 _ -104.8442459
+Brewery _ Diebolt Brewing Company _ 39.7703502 _ -105.0032062
+Brewery _ Baere Brewing Company _ 39.7214236 _ -104.9870303
+Brewery _ Renegade Brewing Company _ 39.7305225 _ -104.9991947
+Brewery _ Rock Bottom Restaurant & Brewery _ 39.7478393 _ -104.9949079
+Brewery _ Beryl's Beer Company _ 39.7647494 _ -104.9803474
+Brewery _ Station 26 Brewing Co. _ 39.7696012 _ -104.9059586
+Brewery _ Epic Brewing Company _ 39.7632866 _ -104.9813785
+Brewery _ Strange Craft Beer Company _ 39.7373466 _ -105.0152334
+Brewery _ SandLot Brewery @ Coors Field _ 39.7555637 _ -104.9926959
+Brewery _ Wynkoop Brewing Company _ 39.7534044 _ -104.9985257
+Brewery _ Black Sky Brewery _ 39.723938 _ -104.998298
+Brewery _ Denver Beer Co. _ 39.7582716 _ -105.0073192
+Brewery _ Breckenridge BBQ & Brew Pub _ 39.7236683 _ -105.0006015
+Brewery _ Breckenridge Brewery _ 39.7236683 _ -105.0006015
+Brewery _ Chain Reaction Brewing Company _ 39.6995433 _ -105.0012001
+Brewery _ Our Mutual Friend Malt & Brew _ 39.7605257 _ -104.9824253
+Brewery _ Denver ChopHouse & Brewery _ 33.5777984 _ -101.8557098
+Brewery _ Pints Pub _ 39.7368754 _ -104.9905269
+Brewery _ Big Nose Brewing _ 37.7667045 _ -122.391889
+Brewery _ Fiction Beer Company _ 39.7403815 _ -104.9057314
+Brewery _ Zephyr Brewing Co. _ 39.7593834 _ -104.9863789
+Eatery _ Falling Rock Tap House _ 39.753935 _ -104.9954029
+Eatery _ Hops & Pie _ 39.7713472 _ -105.043775
+Eatery _ Freshcraft _ 39.7499139 _ -104.999529
+Eatery _ Stapleton Tap House _ 39.7807437 _ -104.8922872
+Eatery _ Cheeky Monk Belgian Beer Café _ 39.7398169 _ -104.9800923
+Eatery _ Euclid Hall Bar & Kitchen _ 39.747755 _ -105.0000244
+Eatery _ Star Bar _ 39.7546189 _ -104.9909367
+Eatery _ Yard House _ 39.7427143 _ -104.9895243
+Eatery _ The Cherry Cricket _ 39.7195627 _ -104.9562183
+Eatery _ Ale House at Amato's _ 39.7586246 _ -105.0091788
+Eatery _ Old Chicago - Market St. _ 39.7484189 _ -105.0006474
+Eatery _ Blake Street Tavern _ 39.7583991 _ -104.9893989
+Eatery _ New Belgium Hub _ 39.8495626 _ -104.6738466
+Eatery _ Breckenridge Colorado Craft _ 39.756297 _ -104.991249
+Store _ Grapevine Wine & Liquors _ 39.6999704 _ -104.9122212
+Store _ Small Batch Liquors _ 39.7759994 _ -105.0437514
+Store _ Little's Fine Wines _ 39.6733342 _ -104.9731344
+Store _ Mondo Vino _ 39.7623371 _ -105.0347987
+Store _ Mr. B's Wine & Spirits _ 39.7552967 _ -104.9917015
+Store _ Colorado Liquor Mart _ 39.7007914 _ -104.9407996
+Store _ Argonaut Wine & Liquor _ 39.7398049 _ -104.9780184
+Homebrew _ Stomp Them Grapes! _ 39.7823404 _ -105.0017095
