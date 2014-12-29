@@ -14,13 +14,9 @@ package net.rouly {
 
     /* Defines an Establishment object with name, location, and category. */
     @SerialVersionUID(100L)
-    class Establishment(name: String,
-                        location: (Double, Double),
-                        category: String) extends Serializable {
-
-      val this.name = name // name of the establishment
-      val this.location = location // point location
-      val this.category = category // category (brewery, eatery, etc.)
+    class Establishment(val name: String,
+                        val location: (Double, Double),
+                        val category: String) extends Serializable {
 
       override def toString(): String =
         return s"""[$category] "$name" at $location"""
@@ -51,8 +47,12 @@ package net.rouly {
 
 
     /* Calculate the distance between two Establishments by ID. */
-    def distanceBetweenPairs( pair: ((VertexId, Establishment), (VertexId, Establishment)) ): (VertexId, VertexId, Long) = {
-      return (pair._1._1, pair._2._1, 0L)
+    def distanceBetweenPairs( pair: ((VertexId, Establishment), (VertexId, Establishment)) ): (VertexId, VertexId, Double) = {
+      val src = pair._1
+      val dst = pair._2
+      val dx = src._2.location._1 - dst._2.location._1
+      val dy = src._2.location._2 - dst._2.location._2
+      return (src._1, dst._1, math.sqrt(dx*dx + dy*dy))
     }
 
 
@@ -80,12 +80,19 @@ package net.rouly {
 
       /* Generate the pairwise distances between vertices and store those
          weights on the corresponding edges. */
-      val edges: RDD[Edge[Long]] =
+      val edges: RDD[Edge[Double]] =
         vertices.cartesian(vertices)
+                .filter({case ((srcID, _), (dstID, _)) => srcID != dstID})
                 .map(distanceBetweenPairs)
                 .map({case (srcID, dstID, attr) => new Edge(srcID, dstID, attr)})
 
       println("Edge generation complete.")
+
+
+      /* Construct a GraphX graph data object. */
+      val graph = Graph( vertices, edges )
+
+      println("Graph generation complete.")
 
     }
 
