@@ -1,5 +1,21 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock %}
 {% block content %}
-Hello, world.
+Hello, world.<br/>
+{% from "forms/macros.html" import render_field %}
+<form method="post" action="">
+  {{ form.csrf_token }}
+
+  <div>
+    {{ form.address.label }}
+    {% if form.address.errors %}
+      {{ form.address }}
+      <ul class="errors">{% for error in form.address.errors %}<li>{{ error|e }}</li>{% endfor %}</ul>
+    {% else %}
+      {{ form.address }}
+    {% endif %}
+  </div>
+
+  <input type="submit" value="submit" />
+</form>
 {% endblock %}
