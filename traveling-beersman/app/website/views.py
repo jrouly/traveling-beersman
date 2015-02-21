@@ -1,12 +1,16 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, request, render_template
+
+from app.website.forms import CityForm
 
 mod = Blueprint('website', __name__, url_prefix='/')
 
-@mod.route('/')
+@mod.route('', methods=['GET', 'POST'])
 def home():
 
+    cityForm = CityForm(request.form)
+
     # if the user enters a city name:
-    if False:
+    if cityForm.validate_on_submit():
         pass
 
         # if city name exists in database:
@@ -23,3 +27,7 @@ def home():
 
     else:
         return render_template("website/home.html")
+
+@mod.route("about")
+def about():
+    return render_template("website/about.html")
