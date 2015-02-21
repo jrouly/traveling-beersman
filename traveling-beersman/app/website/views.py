@@ -1,9 +1,13 @@
 from flask import Blueprint, request, render_template
 
+from app.website import constants as WEB
 from app.website.forms import CityForm
 from app.website.models import City
 
+from app.geocode import geocode_address, geocode_to_city
+
 mod = Blueprint('website', __name__, url_prefix='/')
+
 
 @mod.route('', methods=['GET', 'POST'])
 def home():
@@ -17,12 +21,25 @@ def home():
         #city_data = cityForm.city_name.data
         addr = cityForm.address.data
 
+        # TODO: Would do caching here, but city is disabled.
+
+        # Request the geocoded address.
+        geocode = geocode_address(addr)
+        if geocode is None:
+            return render_template("website/error.html",
+                    error_code=WEB.ERROR_CITY)
+
+        # Extract the city name.
+        city_name = geocode_to_city(geocode)
+        if city_name is None:
+            return render_template("website/error.html",
+                    error_code=WEB.ERROR_CITY)
+
+        # Render the template.
         return render_template("website/test.html",
                 form=cityForm,
-                addr=addr)
+                city_name=city_name)
 
-        # if city name exists in database:
-            # geojson = get(city name)
 
         # else:
             # soup = scrape-BA
