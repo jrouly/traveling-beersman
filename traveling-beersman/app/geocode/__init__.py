@@ -31,13 +31,18 @@ def geocode_to_city(json):
     Given a geocoded JSON object, extract the city name.
     """
 
-    key = (None, None)
+    city = (None, None)
 
     components = json["results"][0]["address_components"]
     for component in components:
         if "locality" in component["types"]:
-            key[0] = component["long_name"]
+            city[0] = component["long_name"]
         if "administrative_area_level_1" in component["types"]:
-            key[1] = component["short_name"]
+            city[1] = component["short_name"]
+    city_string = ', '.join(city)
 
-    return ', '.join(key)
+    geometry = json["results"][0]["geometry"]
+    location = geometry["location"]
+    latlon = (location["lat"], location["lon"])
+
+    return (city_string, latlon)
