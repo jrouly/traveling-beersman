@@ -1,7 +1,7 @@
 bind = ["localhost:4001"]
 workers = 5
-daemon = True
+daemon = False
 
-accesslog = "log/access.log"
-errorlog = "log/error.log"
-loglevel = "info"
+#accesslog = "log/access.log"
+#errorlog = "log/error.log"
+#loglevel = "info"
