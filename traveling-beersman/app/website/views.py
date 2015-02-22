@@ -47,11 +47,10 @@ def home():
         locations = ba_scrape_locations(ba_id)
 
         # Render the template.
-        return render_template("website/test.html",
-                form=cityForm,
+        return render_template("website/map.html",
                 city_string=city_string,
-                ba_id=ba_id,
-                latlng=latlng)
+                lat=latlng[0],
+                lon=latlng[1])
 
 
         # else:
