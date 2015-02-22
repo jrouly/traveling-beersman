@@ -5,7 +5,9 @@
     <script type="text/javascript"src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu7_jCUg6WTbkaJyGoWeAXqrOBB4oQJzw&sensor=false"></script>
     <script type="text/javascript">
         function initialize() {
+            geocoder = new google.maps.Geocoder();
             loc = new google.maps.LatLng({{lat}},{{lng}});
+            var testAddress = "Phoenix AZ";
             var mapOptions = {
                 center: loc,
                 zoom: 11,
@@ -13,8 +15,24 @@
             };
             var map = new google.maps.Map(document.getElementById("map-canvas"),
                 mapOptions);
-            
-            //map.data.loadGeoJson('test.json');
+            if (geocoder) {
+                geocoder.geocode({
+                    'testAddress': testAddress
+                }, function(results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+                            var marker = new google.maps.Marker({
+                                position: results[0].geometry.location,
+                                map: map,
+                            });
+                        } else {
+                            alert("No results found.");
+                        }
+                    } else {
+                        alert("Geocode failed.");
+                    }
+                });
+            }
         }
         google.maps.event.addDomListener(window, 'load', initialize);
     </script>
