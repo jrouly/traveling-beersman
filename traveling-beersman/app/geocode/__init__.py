@@ -1,3 +1,4 @@
+from bs4 import BeautifulSoup
 import requests
 
 from app.website import constants as WEB
@@ -26,23 +27,54 @@ def geocode_address(address):
     return json
 
 
-def geocode_to_city(json):
+def geocode_to_city_string(json):
     """
     Given a geocoded JSON object, extract the city name.
     """
 
-    city = (None, None)
+    locality = None
+    admin = None
 
-    components = json["results"][0]["address_components"]
-    for component in components:
-        if "locality" in component["types"]:
-            city[0] = component["long_name"]
-        if "administrative_area_level_1" in component["types"]:
-            city[1] = component["short_name"]
-    city_string = ', '.join(city)
+    try:
+        components = json["results"][0]["address_components"]
+        for component in components:
+            if "locality" in component["types"]:
+                locality = component["long_name"]
+            if "administrative_area_level_1" in component["types"]:
+                admin = component["short_name"]
+    except:
+        return None
 
-    geometry = json["results"][0]["geometry"]
-    location = geometry["location"]
-    latlon = (location["lat"], location["lon"])
+    if locality is None or admin is None:
+        return None
 
-    return (city_string, latlon)
+    return str(locality) + ', ' + str(admin)
+
+
+def geocode_to_latlng(json):
+    """
+    Given a geocoded JSON object, extract the lat/lng coordinates.
+    """
+
+    try:
+        geometry = json["results"][0]["geometry"]
+        location = geometry["location"]
+        latlng = (location["lat"], location["lng"])
+    except:
+        return None
+
+    return latlng
+
+
+def city_string_to_ba_id(city_string):
+
+    for city_id in WEB.CITY_IDS:
+        if WEB.CITY_IDS.get(city_id) == city_string:
+            return city_id
+    return None
+
+
+def ba_scrape_locations(ba_id):
+
+    url = WEB.BA_CITY % ba_id
+    soup = BeautifulSoup(requests.get(url).data)
