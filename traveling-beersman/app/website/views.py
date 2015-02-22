@@ -6,6 +6,7 @@ from app.website.models import City
 
 from app.geocode import geocode_address, geocode_to_city_string
 from app.geocode import geocode_to_latlng, city_string_to_ba_id
+from app.geocode import ba_scrape_locations
 
 mod = Blueprint('website', __name__, url_prefix='/')
 
@@ -45,30 +46,7 @@ def home():
                     error_code=WEB.ERROR_NOT_IN_BA)
 
         # Grab the locations from the BA "database".
-        #locations = ba_scrape_locations(ba_id)
-        locations = [
-            {
-                "id":0,
-                "name":"A",
-                "addr":"123 A St",
-                "lat":39.74,
-                "lng":-104.94
-            },
-            {
-                "id":1,
-                "name":"B",
-                "addr":"123 B St",
-                "lat":40.00,
-                "lng":-105.50
-            },
-            {
-                "id":2,
-                "name":"C",
-                "addr":"123 C St",
-                "lat":41.00,
-                "lng":-103.50
-            },
-        ]
+        locations = ba_scrape_locations(ba_id)
 
         # Render the template.
         return render_template("website/map.html",

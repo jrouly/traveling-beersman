@@ -1,7 +1,7 @@
 GEOCODE = "https://maps.googleapis.com/maps/api/geocode/json?address=%s"
 DISTANCE = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=%a&destinations=%b"
 
-BA_CITY = "http://www.beeradvocate.com/place/city/%d/"
+BA_CITY = "http://www.beeradvocate.com/place/city/%s/"
 
 ERROR_CITY = "Unable to understand address!"
 ERROR_NOT_IN_BA = "City not found in database!"

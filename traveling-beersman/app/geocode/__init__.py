@@ -77,4 +77,30 @@ def city_string_to_ba_id(city_string):
 def ba_scrape_locations(ba_id):
 
     url = WEB.BA_CITY % ba_id
-    soup = BeautifulSoup(requests.get(url).data)
+    soup = BeautifulSoup(requests.get(url).text)
+
+    locations = [
+        {
+            "id":0,
+            "name":"A",
+            "addr":"123 A St",
+            "lat":39.74,
+            "lng":-104.94
+        },
+        {
+            "id":1,
+            "name":"B",
+            "addr":"123 B St",
+            "lat":40.00,
+            "lng":-105.50
+        },
+        {
+            "id":2,
+            "name":"C",
+            "addr":"123 C St",
+            "lat":41.00,
+            "lng":-103.50
+        },
+    ]
+
+    return locations
