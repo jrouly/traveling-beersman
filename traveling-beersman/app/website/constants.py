@@ -1,5 +1,5 @@
-GEOCODE = "https://maps.googleapis.com/maps/api/geocode/json?address=%s"
-DISTANCE = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=%a&destinations=%b"
+GEOCODE = "https://maps.googleapis.com/maps/api/geocode/json?address=%s&key=AIzaSyCzeyhwdqlWCTMNaqkVA7DICuZk0jihdeQ"
+DISTANCE = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=%s&destinations=%s&key=AIzaSyCzeyhwdqlWCTMNaqkVA7DICuZk0jihdeQ"
 
 BA_CITY = "http://www.beeradvocate.com/place/city/%s/"
 
