@@ -7,6 +7,7 @@ from app.website.models import City
 from app.geocode import geocode_address, geocode_to_city_string
 from app.geocode import geocode_to_latlng, city_string_to_ba_id
 from app.geocode import ba_scrape_locations
+from app.tsp import tsp
 
 mod = Blueprint('website', __name__, url_prefix='/')
 
