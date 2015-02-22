@@ -48,9 +48,12 @@ def home():
         # Grab the locations from the BA "database".
         locations = ba_scrape_locations(ba_id)
 
+        # Generate the TSP ordered data for the template.
+        data = tsp(locations)
+
         # Render the template.
         return render_template("website/map.html",
-                locations=locations,
+                locations=data,
                 city_string=city_string,
                 lat=latlng[0],
                 lng=latlng[1])
