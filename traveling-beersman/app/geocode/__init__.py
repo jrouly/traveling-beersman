@@ -79,28 +79,11 @@ def ba_scrape_locations(ba_id):
     url = WEB.BA_CITY % ba_id
     soup = BeautifulSoup(requests.get(url).text)
 
-    locations = [
-        {
-            "id":0,
-            "name":"A",
-            "addr":"123 A St",
-            "lat":39.74,
-            "lng":-104.94
-        },
-        {
-            "id":1,
-            "name":"B",
-            "addr":"123 B St",
-            "lat":40.00,
-            "lng":-105.50
-        },
-        {
-            "id":2,
-            "name":"C",
-            "addr":"123 C St",
-            "lat":41.00,
-            "lng":-103.50
-        },
-    ]
+    locations = soup.find(id="baContent").find_all("ul")
+    breweries = locations[0].find_all("li")[:5] # top 5
+    eateries = locations[1].find_all("li")[:5]  # top 5
+    locations = breweries + eateries
+    #locations = [location for sublist in locations for location in sublist]
+    locations = [(x.b.text, x.span.text[3:]) for x in locations]
 
     return locations
