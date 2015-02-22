@@ -44,13 +44,15 @@ def home():
             return render_template("website/error.html",
                     error_code=WEB.ERROR_NOT_IN_BA)
 
+        # Grab the locations from the BA "database".
         locations = ba_scrape_locations(ba_id)
 
         # Render the template.
         return render_template("website/map.html",
+                locations=locations,
                 city_string=city_string,
                 lat=latlng[0],
-                lon=latlng[1])
+                lng=latlng[1])
 
 
         # else:
