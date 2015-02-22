@@ -7,7 +7,17 @@ body {
     padding: 0;
 }
 
-/* Googlr Maps Styles */
+.jumbotron {
+	padding-top: 150px;
+	left: 50%;
+	top: 50%;
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	background-image: url("../img/beer_foam.jpg");
+}
+
+/* Google Maps Styles */
 
 #map-canvas { 
 	height: 100%;
