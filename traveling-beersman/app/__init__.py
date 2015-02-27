@@ -40,10 +40,6 @@ def not_found(error):
     return render_template('404.html'), 404
 
 from app.website.views import mod as webModule
+from app.api.views import mod as apiModule
 app.register_blueprint(webModule)
-
-# Later on you'll import the other blueprints the same way:
-#from app.comments.views import mod as commentsModule
-#from app.posts.views import mod as postsModule
-#app.register_blueprint(commentsModule)
-#app.register_blueprint(postsModule)
+app.register_blueprint(apiModule)
