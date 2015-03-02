@@ -12,3 +12,7 @@ def api():
 def test():
     response = {'hello': 'world'}
     return jsonify(response)
+
+@mod.route('/city/<int:city_id>', methods=['GET'])
+def city(city_id):
+    pass
