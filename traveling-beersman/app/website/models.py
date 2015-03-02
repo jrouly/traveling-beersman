@@ -1,11 +1,13 @@
-from app import db
+from app.db import Model, Column, Integer, String, Float
 
-class City(db.Model):
+class City(Model):
 
     __tablename__ = "website_city"
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50), unique=True)
-    locations = db.Column(db.String())
+    id = Column(Integer, primary_key=True)
+    name = Column(String(50), unique=True)
+    address = Column(String(100))
+    lat = Column(Float)
+    lon = Column(Float)
 
     def __init__(self, name=None, locations=None):
         self.name = name
