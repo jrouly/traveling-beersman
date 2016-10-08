@@ -1,0 +1,3 @@
+GET      /                                     com.travelingbeersman.controller.TravelingBeersmanController.index()
+
+GET      /rest/tb/v1/beeradvocate/version      com.travelingbeersman.controller.BeerAdvocateController.version()
